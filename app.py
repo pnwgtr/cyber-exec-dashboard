@@ -1,11 +1,12 @@
-# Streamlit Multi-Page Cybersecurity Dashboard
+# Streamlit Multi-Page Cybersecurity Dashboard with Buttons
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import datetime
 
-# Sidebar Navigation
-page = st.sidebar.selectbox("Select a page", [
+# Navigation using buttons
+st.sidebar.title("Navigation")
+pages = [
     "Dashboard",
     "Vulnerabilities",
     "Phishing",
@@ -14,10 +15,19 @@ page = st.sidebar.selectbox("Select a page", [
     "Tool Inventory",
     "Culture & Awareness",
     "Compliance"
-])
+]
+
+selected_page = None
+for p in pages:
+    if st.sidebar.button(p):
+        selected_page = p
+
+# Default to Dashboard if no button is pressed yet
+if selected_page is None:
+    selected_page = "Dashboard"
 
 # Dashboard Page
-if page == "Dashboard":
+if selected_page == "Dashboard":
     st.title("Cybersecurity Executive Dashboard")
     st.caption("High-level summary of current cybersecurity posture.")
 
@@ -29,7 +39,7 @@ if page == "Dashboard":
     col5.metric("Incidents This Month", "3")
 
 # Vulnerabilities Page
-elif page == "Vulnerabilities":
+elif selected_page == "Vulnerabilities":
     st.title("Vulnerability Remediation Trend")
     st.caption("Shows monthly reduction in open critical vulnerabilities.")
     vuln_data = pd.DataFrame({
@@ -44,7 +54,7 @@ elif page == "Vulnerabilities":
     st.pyplot(fig)
 
 # Phishing Page
-elif page == "Phishing":
+elif selected_page == "Phishing":
     st.title("Phishing Detection Trend")
     st.caption("Monthly phishing email block volume.")
     phishing_data = pd.DataFrame({
@@ -58,7 +68,7 @@ elif page == "Phishing":
     st.pyplot(fig)
 
 # MFA Adoption Page
-elif page == "MFA Adoption":
+elif selected_page == "MFA Adoption":
     st.title("MFA Adoption Trend")
     st.caption("Tracks growth in multifactor authentication coverage.")
     mfa_data = pd.DataFrame({
@@ -72,7 +82,7 @@ elif page == "MFA Adoption":
     st.pyplot(fig)
 
 # Incidents Page
-elif page == "Incidents":
+elif selected_page == "Incidents":
     st.title("Incident Response Details")
     st.caption("Recent security incidents and mitigation status.")
     incident_df = pd.DataFrame({
@@ -84,7 +94,7 @@ elif page == "Incidents":
     st.dataframe(incident_df, use_container_width=True)
 
 # Tool Inventory Page
-elif page == "Tool Inventory":
+elif selected_page == "Tool Inventory":
     st.title("Security Tool Inventory")
     st.caption("Tool categories, owners, and status.")
     tool_df = pd.DataFrame({
@@ -96,7 +106,7 @@ elif page == "Tool Inventory":
     st.dataframe(tool_df, use_container_width=True)
 
 # Culture & Awareness Page
-elif page == "Culture & Awareness":
+elif selected_page == "Culture & Awareness":
     st.title("Security Culture and Awareness")
     st.caption("User behavior, training results, and phishing test feedback.")
     culture_df = pd.DataFrame({
@@ -111,7 +121,7 @@ elif page == "Culture & Awareness":
     st.dataframe(culture_df)
 
 # Compliance Page
-elif page == "Compliance":
+elif selected_page == "Compliance":
     st.title("Compliance Scorecard")
     st.caption("Alignment with major regulatory frameworks.")
     compliance_df = pd.DataFrame({
