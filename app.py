@@ -7,6 +7,9 @@ import datetime
 # Sidebar Navigation
 page = st.sidebar.selectbox("Select a page", [
     "Dashboard",
+    "Vulnerabilities",
+    "Phishing",
+    "MFA Adoption",
     "Incidents",
     "Tool Inventory",
     "Culture & Awareness",
@@ -18,12 +21,46 @@ if page == "Dashboard":
     st.title("Cybersecurity Executive Dashboard")
     st.caption("High-level summary of current cybersecurity posture.")
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4, col5 = st.columns(5)
     col1.metric("Critical Vulns (30d)", "11", "-4")
     col2.metric("Phishing Emails Blocked", "760", "-140")
     col3.metric("Endpoint Coverage", "87%")
+    col4.metric("MFA Adoption", "92%")
+    col5.metric("Incidents This Month", "3")
 
-    st.subheader("MFA Adoption Trend")
+# Vulnerabilities Page
+elif page == "Vulnerabilities":
+    st.title("Vulnerability Remediation Trend")
+    st.caption("Shows monthly reduction in open critical vulnerabilities.")
+    vuln_data = pd.DataFrame({
+        'Date': pd.date_range(end=pd.Timestamp.today(), periods=6, freq='M'),
+        'Critical Vulns': [45, 39, 31, 22, 15, 11]
+    })
+    fig, ax = plt.subplots()
+    ax.plot(vuln_data['Date'], vuln_data['Critical Vulns'], marker='o')
+    ax.set_ylabel("Open Critical Vulns")
+    ax.set_xlabel("Month")
+    ax.set_title("Critical Vulnerabilities Over Time")
+    st.pyplot(fig)
+
+# Phishing Page
+elif page == "Phishing":
+    st.title("Phishing Detection Trend")
+    st.caption("Monthly phishing email block volume.")
+    phishing_data = pd.DataFrame({
+        'Month': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        'Blocked Emails': [820, 640, 975, 1120, 900, 760]
+    })
+    fig, ax = plt.subplots()
+    ax.bar(phishing_data['Month'], phishing_data['Blocked Emails'])
+    ax.set_ylabel("Blocked Emails")
+    ax.set_title("Phishing Emails Blocked per Month")
+    st.pyplot(fig)
+
+# MFA Adoption Page
+elif page == "MFA Adoption":
+    st.title("MFA Adoption Trend")
+    st.caption("Tracks growth in multifactor authentication coverage.")
     mfa_data = pd.DataFrame({
         'Month': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
         'MFA %': [70, 75, 80, 85, 88, 92]
@@ -31,6 +68,7 @@ if page == "Dashboard":
     fig, ax = plt.subplots()
     ax.plot(mfa_data['Month'], mfa_data['MFA %'], marker='o')
     ax.set_ylabel("MFA Adoption (%)")
+    ax.set_title("MFA Adoption Rate Over Time")
     st.pyplot(fig)
 
 # Incidents Page
