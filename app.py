@@ -35,6 +35,8 @@ with tabs[0]:
     with col1:
         st.caption("Critical Vulnerabilities")
         fig1, ax1 = plt.subplots(figsize=(3, 2))
+        ax1.set_facecolor('#f0f2f6')
+        fig1.patch.set_facecolor('none')
         fig1.patch.set_facecolor('none')
         ax1.set_facecolor('#f0f2f6')
         ax1.plot([45, 39, 31, 22, 15, 11], marker='o', color='#1f77b4')
@@ -46,6 +48,8 @@ with tabs[0]:
     with col2:
         st.caption("Phishing Volume")
         fig2, ax2 = plt.subplots(figsize=(3, 2))
+        ax2.set_facecolor('#f0f2f6')
+        fig2.patch.set_facecolor('none')
         fig2.patch.set_facecolor('none')
         ax2.set_facecolor('#f0f2f6')
         ax2.bar(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], [820, 640, 975, 1120, 900, 760], color='#ff7f0e')
@@ -57,6 +61,8 @@ with tabs[0]:
     with col3:
         st.caption("MFA Adoption")
         fig3, ax3 = plt.subplots(figsize=(3, 2))
+        ax3.set_facecolor('#f0f2f6')
+        fig3.patch.set_facecolor('none')
         fig3.patch.set_facecolor('none')
         ax3.set_facecolor('#f0f2f6')
         ax3.plot([70, 75, 80, 85, 88, 92], marker='o', color='#2ca02c')
