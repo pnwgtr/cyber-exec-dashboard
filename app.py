@@ -91,8 +91,12 @@ page = st.session_state["page"]
 
 # ---------- Dashboard ----------
 if page == "Dashboard":
-    st.title("Cybersecurity Executive Dashboard")
-    st.caption("High‑level summary of current cybersecurity posture.")
+    st.markdown("""
+        <h1 style='text-align:center; font-size:2.8rem; font-weight:900;'>Cybersecurity Executive Dashboard</h1>
+    """, unsafe_allow_html=True)
+    st.markdown("""
+        <div style='text-align:center; font-size:1.2rem; color:gray;'>High‑level summary of current cybersecurity posture.</div>
+    """, unsafe_allow_html=True)
 
     k1, k2, k3, k4, k5 = st.columns(5)
     with k1:
