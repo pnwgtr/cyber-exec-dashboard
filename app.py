@@ -28,6 +28,37 @@ with tabs[0]:
     col4.metric("MFA Adoption", "92%")
     col5.metric("Incidents This Month", "3")
 
+    st.markdown("---")
+    st.subheader("Preview: Security Trends at a Glance")
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.caption("Critical Vulnerabilities")
+        fig1, ax1 = plt.subplots(figsize=(3, 2))
+        ax1.plot([45, 39, 31, 22, 15, 11], marker='o')
+        ax1.set_xticks([])
+        ax1.set_yticks([])
+        ax1.set_title("Vuln Trend")
+        st.pyplot(fig1)
+
+    with col2:
+        st.caption("Phishing Volume")
+        fig2, ax2 = plt.subplots(figsize=(3, 2))
+        ax2.bar(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], [820, 640, 975, 1120, 900, 760])
+        ax2.set_xticks([])
+        ax2.set_yticks([])
+        ax2.set_title("Phishing Trend")
+        st.pyplot(fig2)
+
+    with col3:
+        st.caption("MFA Adoption")
+        fig3, ax3 = plt.subplots(figsize=(3, 2))
+        ax3.plot([70, 75, 80, 85, 88, 92], marker='o')
+        ax3.set_xticks([])
+        ax3.set_yticks([])
+        ax3.set_title("MFA Trend")
+        st.pyplot(fig3)
+
 with tabs[1]:
     st.title("Vulnerability Remediation Trend")
     st.caption("Shows monthly reduction in open critical vulnerabilities.")
