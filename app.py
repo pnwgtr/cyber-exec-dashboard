@@ -14,9 +14,12 @@ st.markdown(
     """
     <style>
 div[data-testid="stTabs"] button {
-    font-size: 1.3rem;
-    font-weight: 600;
-    padding: 0.75rem 1.5rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    flex: 1;
+    justify-content: center;
+    text-align: center;
 }
 </style>
     """,
