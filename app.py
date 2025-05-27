@@ -31,7 +31,7 @@ with tabs[0]:
     st.markdown("---")
     st.subheader("Preview: Security Trends at a Glance")
     with st.container():
-    col1, col2, col3 = st.columns(3)
+        col1, col2, col3 = st.columns(3)
 
     with col1:
         st.caption("Critical Vulnerabilities")
@@ -66,7 +66,7 @@ with tabs[0]:
         ax3.set_title("MFA Trend", fontsize=10)
         st.pyplot(fig3)
 
-        st.divider()
+            st.divider()
     col4, col5, col6 = st.columns(3)
 
     with col4:
