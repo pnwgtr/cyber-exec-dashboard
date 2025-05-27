@@ -32,6 +32,14 @@ div[data-testid="stMetric-value"] {
     text-align: center !important;
     font-weight: 800;
 }
+
+/* Center the entire metric container */
+div[data-testid="stMetric"] > div {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
 </style>
     """,
     unsafe_allow_html=True,
