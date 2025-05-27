@@ -55,7 +55,7 @@ PAGES = [
     "MFA Adoption",
     "Incidents",
     "Tool Inventory",
-    "Culture & Awareness",
+    "Culture",
     "Compliance",
 ]
 
@@ -167,7 +167,8 @@ elif page == "Tool Inventory":
     st.dataframe(tool_df, use_container_width=True)
 
 # ---------- Culture & Awareness ----------
-elif page == "Culture & Awareness":
+elif page == "Culture":
+    st.title("Security Culture and Awareness")
     st.title("Security Culture and Awareness")
     culture_df = pd.DataFrame({
         "Question": [
