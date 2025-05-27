@@ -25,12 +25,14 @@ div[data-testid="column"] button {
 /* Center metric labels and values */
 div[data-testid="stMetric-label"] {
     text-align: center !important;
-    font-weight: 700;
+    font-weight: 800 !important;
+    font-size: 1.2rem !important;
 }
 
 div[data-testid="stMetric-value"] {
     text-align: center !important;
-    font-weight: 800;
+    font-weight: 900 !important;
+    font-size: 2rem !important;
 }
 
 
