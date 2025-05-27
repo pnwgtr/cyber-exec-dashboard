@@ -72,7 +72,13 @@ with tabs[1]:
         'Date': pd.date_range(end=pd.Timestamp.today(), periods=6, freq='M'),
         'Critical Vulns': [45, 39, 31, 22, 15, 11]
     })
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(facecolor='none')
+    fig.patch.set_facecolor('none')
+    ax.set_facecolor('#f0f2f6')acecolor='none')
+    fig.patch.set_facecolor('none')
+    ax.set_facecolor('#f0f2f6')acecolor='none')
+    fig.patch.set_facecolor('none')
+    ax.set_facecolor('#f0f2f6')
     ax.plot(vuln_data['Date'], vuln_data['Critical Vulns'], marker='o')
     ax.set_ylabel("Open Critical Vulns")
     ax.set_xlabel("Month")
