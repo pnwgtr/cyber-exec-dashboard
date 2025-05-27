@@ -13,12 +13,15 @@ preview_bg = "#f0f2f6"             # soft grey plot background
 st.markdown(
     """
     <style>
-/* force tab label text larger */
-div[data-testid="stTabs"] button span {
-    font-size: 32px !important;  /* absolute px to be unmistakable */
+/* fallback 1: target the tab button itself */
+button[data-baseweb="tab"] span {
+    font-size: 24px !important;
     font-weight: 800 !important;
-    text-transform: uppercase;
-    line-height: 1.8;
+}
+/* fallback 2: any direct child span of tab button */
+div[data-testid="stTabs"] button span {
+    font-size: 24px !important;
+    font-weight: 800 !important;
 }
 </style>
     """,
