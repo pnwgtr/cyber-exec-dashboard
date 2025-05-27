@@ -14,7 +14,7 @@ st.markdown(
     <style>
 /* Nav buttons equally distributed & centered text */
 div[data-testid="column"] button {
-    width: 100% !important;      /* fill column width */
+    width: 100% !important;
     text-align: center !important;
     font-size: 1.8rem !important;
     font-weight: 800 !important;
@@ -28,17 +28,34 @@ div[data-testid="stMetric-label"] {
     font-weight: 900 !important;
     font-size: 1.4rem !important;
     text-transform: uppercase !important;
-    color: #111 !important;
+    color: var(--text-color) !important;
 }
 
 div[data-testid="stMetric-value"] {
     text-align: center !important;
     font-weight: 900 !important;
     font-size: 2.4rem !important;
-    color: #000 !important;
+    color: var(--text-color) !important;
 }
 
+/* Dashboard custom metric blocks (HTML based) */
+body, html, .main, .block-container {
+    color: var(--text-color) !important;
+    background-color: var(--background-color) !important;
+}
 
+/* Dark mode-safe manual styles */
+:root {
+  --text-color: #111;
+  --background-color: #f0f2f6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #fafafa;
+    --background-color: #0e1117;
+  }
+}
 </style>
     """,
     unsafe_allow_html=True,
