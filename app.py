@@ -95,11 +95,41 @@ if page == "Dashboard":
     st.caption("High‑level summary of current cybersecurity posture.")
 
     k1, k2, k3, k4, k5 = st.columns(5)
-    k1.metric("Critical Vulns (30d)", "11", "-4 🔻")
-    k2.metric("Phishing Emails Blocked", "760", "-140 🔻")
-    k3.metric("Endpoint Coverage", "87%", "+3% 🔺")
-    k4.metric("MFA Adoption", "92%", "+4% 🔺")
-    k5.metric("Incidents This Month", "3", "+1 🔺")
+    with k1:
+        st.markdown("""
+        <div style='text-align:center'>
+            <div style='font-size:1.2rem;font-weight:800;text-transform:uppercase;'>Critical Vulns (30d)</div>
+            <div style='font-size:2.2rem;font-weight:900;'>11 <span style='color:red;'>🔻</span></div>
+        </div>
+        """, unsafe_allow_html=True)
+    with k2:
+        st.markdown("""
+        <div style='text-align:center'>
+            <div style='font-size:1.2rem;font-weight:800;text-transform:uppercase;'>Phishing Emails Blocked</div>
+            <div style='font-size:2.2rem;font-weight:900;'>760 <span style='color:red;'>🔻</span></div>
+        </div>
+        """, unsafe_allow_html=True)
+    with k3:
+        st.markdown("""
+        <div style='text-align:center'>
+            <div style='font-size:1.2rem;font-weight:800;text-transform:uppercase;'>Endpoint Coverage</div>
+            <div style='font-size:2.2rem;font-weight:900;'>87% <span style='color:green;'>🔺</span></div>
+        </div>
+        """, unsafe_allow_html=True)
+    with k4:
+        st.markdown("""
+        <div style='text-align:center'>
+            <div style='font-size:1.2rem;font-weight:800;text-transform:uppercase;'>MFA Adoption</div>
+            <div style='font-size:2.2rem;font-weight:900;'>92% <span style='color:green;'>🔺</span></div>
+        </div>
+        """, unsafe_allow_html=True)
+    with k5:
+        st.markdown("""
+        <div style='text-align:center'>
+            <div style='font-size:1.2rem;font-weight:800;text-transform:uppercase;'>Incidents This Month</div>
+            <div style='font-size:2.2rem;font-weight:900;'>3 <span style='color:red;'>🔺</span></div>
+        </div>
+        """, unsafe_allow_html=True)
 
     st.markdown("---")
 
