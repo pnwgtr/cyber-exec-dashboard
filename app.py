@@ -102,25 +102,34 @@ if page == "Dashboard":
         r1c1, r1c2, r1c3 = st.columns(3)
         with r1c1:
             mini_line([45, 39, 31, 22, 15, 11], "#1f77b4", "Vuln Trend")
-            if st.button("", key="box_vuln"):
+            if st.button("See detailed chart", key="box_vuln", help="Open full Vulnerabilities chart")
+            if st.session_state.get("box_vuln"):
                 st.session_state["page"] = "Vulnerabilities"  # navigate
         with r1c2:
             mini_bar(["Jan","Feb","Mar","Apr","May","Jun"], [820,640,975,1120,900,760], "#ff7f0e", "Phishing Trend")
-            if st.button("", key="box_phish"):
+            if st.button("See detailed chart", key="box_phish", help="Open full Phishing chart")
+            if st.session_state.get("box_phish"):
                 st.session_state["page"] = "Phishing"
         with r1c3:
             mini_line([70,75,80,85,88,92], "#2ca02c", "MFA Trend")
-            if st.button("", key="box_mfa"):
+            if st.button("See detailed chart", key="box_mfa", help="Open full MFA chart")
+            if st.session_state.get("box_mfa"):
                 st.session_state["page"] = "MFA Adoption"
 
         st.divider()
         r2c1, r2c2, r2c3 = st.columns(3)
         with r2c1:
             mini_bar(["Apr","May"], [2,3], "#d62728", "Incidents")
+            if st.button("See detailed chart", key="box_incidents", help="Open full Incidents chart"):
+                st.session_state["page"] = "Incidents"
         with r2c2:
             mini_bar(["CrowdStrike","Defender","Tenable"], [100,60,100], "#9467bd", "Tool Coverage")
+            if st.button("See detailed chart", key="box_tools", help="Open full Tool Coverage chart"):
+                st.session_state["page"] = "Tool Inventory"
         with r2c3:
             mini_bar(["NIST CSF","PCI DSS"], [72,64], "#8c564b", "Compliance")
+            if st.button("See detailed chart", key="box_compliance", help="Open full Compliance chart"):
+                st.session_state["page"] = "Compliance"], [72,64], "#8c564b", "Compliance")
 
 # ---------- Vulnerabilities ----------
 elif page == "Vulnerabilities":
