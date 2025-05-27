@@ -119,8 +119,8 @@ if page == "Dashboard":
     with k1:
         st.markdown("""
         <div style='text-align:center'>
-            <div style='font-size:1.2rem;font-weight:800;text-transform:uppercase;color:var(--text-color);'>Critical Vulns (30d)</div>
-            <div style='font-size:2.2rem;font-weight:900;color:var(--text-color);'>11 <span style='color:red;'>🔻</span></div>
+            <div style='font-size:1.2rem;font-weight:800;text-transform:uppercase;color:#111;color:light-dark(#111,#fafafa);'>Critical Vulns (30d)</div>
+            <div style='font-size:2.2rem;font-weight:900;color:#111;color:light-dark(#111,#fafafa);'>11 <span style='color:red;'>🔻</span></div>
         </div>
         """, unsafe_allow_html=True)
     with k2:
