@@ -8,6 +8,20 @@ import datetime
 st.set_page_config(layout="wide")  # full‑width layout
 preview_bg = "#f0f2f6"             # soft grey plot background
 
+# ---------- Global Style ----------
+# enlarge horizontal tab text
+st.markdown(
+    """
+    <style>
+    [data-testid="stTabs"] .tab {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 # ---------- Helper to build mini chart ----------
 def mini_line(data, color, title):
     fig, ax = plt.subplots(figsize=(3, 2))
@@ -56,20 +70,20 @@ with tabs[0]:
     k5.metric("Incidents This Month", "3", "+1 🔺")
 
     st.markdown("---")
-    st.subheader("Preview: Security Trends at a Glance")
+    
 
     # ----- Mini‑chart ribbon -----
     with st.container():
         # Row 1
         c1, c2, c3 = st.columns(3)
         with c1:
-            st.caption("Critical Vulnerabilities")
+            
             mini_line([45, 39, 31, 22, 15, 11], "#1f77b4", "Vuln Trend")
         with c2:
-            st.caption("Phishing Volume")
+            
             mini_bar(['Jan','Feb','Mar','Apr','May','Jun'], [820,640,975,1120,900,760], "#ff7f0e", "Phishing Trend")
         with c3:
-            st.caption("MFA Adoption")
+            
             mini_line([70,75,80,85,88,92], "#2ca02c", "MFA Trend")
 
         st.divider()
@@ -77,13 +91,13 @@ with tabs[0]:
         # Row 2
         c4, c5, c6 = st.columns(3)
         with c4:
-            st.caption("Incident Volume")
+            
             mini_bar(['Apr','May'], [2,3], "#d62728", "Incidents")
         with c5:
-            st.caption("Tool Coverage")
+            
             mini_bar(['CrowdStrike','Defender','Tenable'], [100,60,100], "#9467bd", "Tool Coverage")
         with c6:
-            st.caption("Compliance Score")
+            
             mini_bar(['NIST CSF','PCI DSS'], [72,64], "#8c564b", "Compliance")
 
 # ===============  VULNERABILITIES  ===============
