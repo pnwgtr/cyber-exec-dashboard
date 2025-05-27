@@ -12,14 +12,27 @@ preview_bg = "#f0f2f6"
 st.markdown(
     """
     <style>
-    /* make nav buttons wide & bold */
-    div[data-testid="column"] button {
-        width: 100% !important;
-        font-size: 1.8rem !important;
-        font-weight: 800 !important;
-        padding: 1rem 0 !important;
-    }
-    </style>
+/* Nav buttons equally distributed & centered text */
+div[data-testid="column"] button {
+    width: 100% !important;      /* fill column width */
+    text-align: center !important;
+    font-size: 1.8rem !important;
+    font-weight: 800 !important;
+    padding: 1rem 0 !important;
+    display: block !important;
+}
+
+/* Center metric labels and values */
+div[data-testid="stMetric-label"] {
+    text-align: center !important;
+    font-weight: 700;
+}
+
+div[data-testid="stMetric-value"] {
+    text-align: center !important;
+    font-weight: 800;
+}
+</style>
     """,
     unsafe_allow_html=True,
 )
