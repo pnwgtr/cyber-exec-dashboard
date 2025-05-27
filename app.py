@@ -1,42 +1,26 @@
-# Streamlit Multi-Page Cybersecurity Dashboard with Styled Button Navigation
+# Streamlit Multi-Page Cybersecurity Dashboard with Horizontal Navigation
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import datetime
 
-# Sidebar Navigation with Sections
-st.sidebar.title("Navigation")
-st.sidebar.markdown("### Executive Overview")
-if st.sidebar.button("Dashboard"):
-    selected_page = "Dashboard"
+# Horizontal Navigation Tabs
+st.set_page_config(layout="wide")
+tabs = st.tabs([
+    "Dashboard",
+    "Vulnerabilities",
+    "Phishing",
+    "MFA Adoption",
+    "Incidents",
+    "Tool Inventory",
+    "Culture & Awareness",
+    "Compliance"
+])
 
-st.sidebar.markdown("### Threat Trends")
-if st.sidebar.button("Vulnerabilities"):
-    selected_page = "Vulnerabilities"
-if st.sidebar.button("Phishing"):
-    selected_page = "Phishing"
-if st.sidebar.button("MFA Adoption"):
-    selected_page = "MFA Adoption"
-
-st.sidebar.markdown("### Operations & Risk")
-if st.sidebar.button("Incidents"):
-    selected_page = "Incidents"
-if st.sidebar.button("Tool Inventory"):
-    selected_page = "Tool Inventory"
-if st.sidebar.button("Culture & Awareness"):
-    selected_page = "Culture & Awareness"
-if st.sidebar.button("Compliance"):
-    selected_page = "Compliance"
-
-# Default to Dashboard if no button pressed
-if 'selected_page' not in locals():
-    selected_page = "Dashboard"
-
-# Dashboard Page
-if selected_page == "Dashboard":
+# Tab Handlers
+with tabs[0]:
     st.title("Cybersecurity Executive Dashboard")
     st.caption("High-level summary of current cybersecurity posture.")
-
     col1, col2, col3, col4, col5 = st.columns(5)
     col1.metric("Critical Vulns (30d)", "11", "-4")
     col2.metric("Phishing Emails Blocked", "760", "-140")
@@ -44,8 +28,7 @@ if selected_page == "Dashboard":
     col4.metric("MFA Adoption", "92%")
     col5.metric("Incidents This Month", "3")
 
-# Vulnerabilities Page
-elif selected_page == "Vulnerabilities":
+with tabs[1]:
     st.title("Vulnerability Remediation Trend")
     st.caption("Shows monthly reduction in open critical vulnerabilities.")
     vuln_data = pd.DataFrame({
@@ -59,8 +42,7 @@ elif selected_page == "Vulnerabilities":
     ax.set_title("Critical Vulnerabilities Over Time")
     st.pyplot(fig)
 
-# Phishing Page
-elif selected_page == "Phishing":
+with tabs[2]:
     st.title("Phishing Detection Trend")
     st.caption("Monthly phishing email block volume.")
     phishing_data = pd.DataFrame({
@@ -73,8 +55,7 @@ elif selected_page == "Phishing":
     ax.set_title("Phishing Emails Blocked per Month")
     st.pyplot(fig)
 
-# MFA Adoption Page
-elif selected_page == "MFA Adoption":
+with tabs[3]:
     st.title("MFA Adoption Trend")
     st.caption("Tracks growth in multifactor authentication coverage.")
     mfa_data = pd.DataFrame({
@@ -87,8 +68,7 @@ elif selected_page == "MFA Adoption":
     ax.set_title("MFA Adoption Rate Over Time")
     st.pyplot(fig)
 
-# Incidents Page
-elif selected_page == "Incidents":
+with tabs[4]:
     st.title("Incident Response Details")
     st.caption("Recent security incidents and mitigation status.")
     incident_df = pd.DataFrame({
@@ -99,8 +79,7 @@ elif selected_page == "Incidents":
     })
     st.dataframe(incident_df, use_container_width=True)
 
-# Tool Inventory Page
-elif selected_page == "Tool Inventory":
+with tabs[5]:
     st.title("Security Tool Inventory")
     st.caption("Tool categories, owners, and status.")
     tool_df = pd.DataFrame({
@@ -111,8 +90,7 @@ elif selected_page == "Tool Inventory":
     })
     st.dataframe(tool_df, use_container_width=True)
 
-# Culture & Awareness Page
-elif selected_page == "Culture & Awareness":
+with tabs[6]:
     st.title("Security Culture and Awareness")
     st.caption("User behavior, training results, and phishing test feedback.")
     culture_df = pd.DataFrame({
@@ -126,8 +104,7 @@ elif selected_page == "Culture & Awareness":
     })
     st.dataframe(culture_df)
 
-# Compliance Page
-elif selected_page == "Compliance":
+with tabs[7]:
     st.title("Compliance Scorecard")
     st.caption("Alignment with major regulatory frameworks.")
     compliance_df = pd.DataFrame({
