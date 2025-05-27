@@ -126,8 +126,8 @@ if page == "Dashboard":
     with k2:
         st.markdown("""
         <div style='text-align:center'>
-            <div style='font-size:1.2rem;font-weight:800;text-transform:uppercase;'>Phishing Emails Blocked</div>
-            <div style='font-size:2.2rem;font-weight:900;'>760 <span style='color:red;'>🔻</span></div>
+            <div style='font-size:1.2rem;font-weight:800;text-transform:uppercase;color:light-dark(#111,#fafafa);'>Phishing Emails Blocked</div>
+            <div style='font-size:2.2rem;font-weight:900;color:light-dark(#111,#fafafa);'>760 <span style='color:red;'>🔻</span></div>
         </div>
         """, unsafe_allow_html=True)
     with k3:
@@ -287,3 +287,4 @@ else:
         ]
     })
     st.dataframe(comp_df, use_container_width=True)
+
