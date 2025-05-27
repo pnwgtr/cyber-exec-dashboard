@@ -13,18 +13,25 @@ preview_bg = "#f0f2f6"             # soft grey plot background
 st.markdown(
     """
     <style>
-div[data-testid="stTabs"] button {
-    font-size: 3rem;
-    font-weight: 700;
-    padding: 1rem 2rem;
-    flex: 1;
-    justify-content: center;
-    text-align: center;
-}
-</style>
+    /* Apply styling to tab buttons */
+    div[data-testid="stTabs"] button {
+        font-size: 3rem !important;
+        font-weight: 800 !important;
+        padding: 1.2rem 2rem !important;
+        flex: 1 !important;
+        justify-content: center !important;
+    }
+
+    /* Apply styling to text within the tab buttons */
+    div[data-testid="stTabs"] button span {
+        font-size: 3rem !important;
+        font-weight: 800 !important;
+    }
+    </style>
     """,
     unsafe_allow_html=True,
 )
+
 
 # ---------- Helper to build mini chart ----------
 def mini_line(data, color, title):
