@@ -34,29 +34,35 @@ with tabs[0]:
 
     with col1:
         st.caption("Critical Vulnerabilities")
-        fig1, ax1 = plt.subplots(figsize=(3, 2))
-        ax1.plot([45, 39, 31, 22, 15, 11], marker='o')
+        fig1, ax1 = plt.subplots(figsize=(3, 2), facecolor='none')
+        ax1.set_facecolor('#f0f2f6')
+        ax1.plot([45, 39, 31, 22, 15, 11], marker='o', color='#1f77b4')
         ax1.set_xticks([])
         ax1.set_yticks([])
-        ax1.set_title("Vuln Trend")
+        ax1.set_title("Vuln Trend", fontsize=10)
+        fig1.patch.set_facecolor('none')
         st.pyplot(fig1)
 
     with col2:
         st.caption("Phishing Volume")
-        fig2, ax2 = plt.subplots(figsize=(3, 2))
-        ax2.bar(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], [820, 640, 975, 1120, 900, 760])
+        fig2, ax2 = plt.subplots(figsize=(3, 2), facecolor='none')
+        ax2.set_facecolor('#f0f2f6')
+        ax2.bar(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], [820, 640, 975, 1120, 900, 760], color='#ff7f0e')
         ax2.set_xticks([])
         ax2.set_yticks([])
-        ax2.set_title("Phishing Trend")
+        ax2.set_title("Phishing Trend", fontsize=10)
+        fig2.patch.set_facecolor('none')
         st.pyplot(fig2)
 
     with col3:
         st.caption("MFA Adoption")
-        fig3, ax3 = plt.subplots(figsize=(3, 2))
-        ax3.plot([70, 75, 80, 85, 88, 92], marker='o')
+        fig3, ax3 = plt.subplots(figsize=(3, 2), facecolor='none')
+        ax3.set_facecolor('#f0f2f6')
+        ax3.plot([70, 75, 80, 85, 88, 92], marker='o', color='#2ca02c')
         ax3.set_xticks([])
         ax3.set_yticks([])
-        ax3.set_title("MFA Trend")
+        ax3.set_title("MFA Trend", fontsize=10)
+        fig3.patch.set_facecolor('none')
         st.pyplot(fig3)
 
 with tabs[1]:
