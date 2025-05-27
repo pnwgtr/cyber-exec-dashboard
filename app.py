@@ -13,15 +13,16 @@ preview_bg = "#f0f2f6"             # soft grey plot background
 st.markdown(
     """
     <style>
-/* fallback 1: target the tab button itself */
-button[data-baseweb="tab"] span {
-    font-size: 24px !important;
-    font-weight: 800 !important;
+/* Streamlit tab text – robust selectors to cover recent versions */
+/* Target the <button> elements inside the tab list */
+div[data-testid="stTabs"] > div > div > button {
+    padding: 1rem 2rem !important;   /* bigger click target */
 }
-/* fallback 2: any direct child span of tab button */
-div[data-testid="stTabs"] button span {
-    font-size: 24px !important;
-    font-weight: 800 !important;
+/* Target the <span> that actually holds the label text */
+div[data-testid="stTabs"] > div > div > button span {
+    font-size: 24px !important;      /* larger text */
+    font-weight: 800 !important;     /* bold */
+    white-space: nowrap !important;  /* prevent wrap */
 }
 </style>
     """,
