@@ -1,29 +1,35 @@
-# Streamlit Multi-Page Cybersecurity Dashboard with Buttons
+# Streamlit Multi-Page Cybersecurity Dashboard with Styled Button Navigation
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import datetime
 
-# Navigation using buttons
+# Sidebar Navigation with Sections
 st.sidebar.title("Navigation")
-pages = [
-    "Dashboard",
-    "Vulnerabilities",
-    "Phishing",
-    "MFA Adoption",
-    "Incidents",
-    "Tool Inventory",
-    "Culture & Awareness",
-    "Compliance"
-]
+st.sidebar.markdown("### Executive Overview")
+if st.sidebar.button("Dashboard"):
+    selected_page = "Dashboard"
 
-selected_page = None
-for p in pages:
-    if st.sidebar.button(p):
-        selected_page = p
+st.sidebar.markdown("### Threat Trends")
+if st.sidebar.button("Vulnerabilities"):
+    selected_page = "Vulnerabilities"
+if st.sidebar.button("Phishing"):
+    selected_page = "Phishing"
+if st.sidebar.button("MFA Adoption"):
+    selected_page = "MFA Adoption"
 
-# Default to Dashboard if no button is pressed yet
-if selected_page is None:
+st.sidebar.markdown("### Operations & Risk")
+if st.sidebar.button("Incidents"):
+    selected_page = "Incidents"
+if st.sidebar.button("Tool Inventory"):
+    selected_page = "Tool Inventory"
+if st.sidebar.button("Culture & Awareness"):
+    selected_page = "Culture & Awareness"
+if st.sidebar.button("Compliance"):
+    selected_page = "Compliance"
+
+# Default to Dashboard if no button pressed
+if 'selected_page' not in locals():
     selected_page = "Dashboard"
 
 # Dashboard Page
