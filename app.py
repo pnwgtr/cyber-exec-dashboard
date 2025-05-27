@@ -13,12 +13,12 @@ preview_bg = "#f0f2f6"             # soft grey plot background
 st.markdown(
     """
     <style>
-    [data-testid="stTabs"] .tab {
-        font-size: 1.5rem;
-        font-weight: 700;
-        padding: 1rem 1.5rem;
-    }
-    </style>
+div[data-testid="stTabs"] button {
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+}
+</style>
     """,
     unsafe_allow_html=True,
 )
