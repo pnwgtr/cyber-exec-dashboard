@@ -184,6 +184,11 @@ elif page == "Culture & Awareness":
 else:
     st.title("Compliance Scorecard")
     comp_df = pd.DataFrame({
-        "Framework": ["NIST CSF","PCI DSS 4.0"],
-        "Compliance Score": [72,64],
-        "Gaps Noted": ["Recovery &
+        "Framework": ["NIST CSF", "PCI DSS 4.0"],
+        "Compliance Score": [72, 64],
+        "Gaps Noted": [
+            "Recovery & Response underdeveloped",
+            "Admin MFA and segmentation gaps"
+        ]
+    })
+    st.dataframe(comp_df, use_container_width=True)
