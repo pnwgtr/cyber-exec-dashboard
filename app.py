@@ -102,19 +102,19 @@ if page == "Dashboard":
         r1c1, r1c2, r1c3 = st.columns(3)
         with r1c1:
             mini_line([45, 39, 31, 22, 15, 11], "#1f77b4", "Vuln Trend")
-            sub1, sub2, sub3 = st.columns([1,2,1])
+            sub1, sub2, sub3 = st.columns([0.25, 0.5, 0.25])
             with sub2:
                 if st.button("See detailed chart", key="box_vuln", help="Open full Vulnerabilities chart"):
                     st.session_state["page"] = "Vulnerabilities"
         with r1c2:
             mini_bar(["Jan","Feb","Mar","Apr","May","Jun"], [820,640,975,1120,900,760], "#ff7f0e", "Phishing Trend")
-            sub1, sub2, sub3 = st.columns([1,2,1])
+            sub1, sub2, sub3 = st.columns([0.25, 0.5, 0.25])
             with sub2:
                 if st.button("See detailed chart", key="box_phish", help="Open full Phishing chart"):
                     st.session_state["page"] = "Phishing"
         with r1c3:
             mini_line([70,75,80,85,88,92], "#2ca02c", "MFA Trend")
-            sub1, sub2, sub3 = st.columns([1,2,1])
+            sub1, sub2, sub3 = st.columns([0.25, 0.5, 0.25])
             with sub2:
                 if st.button("See detailed chart", key="box_mfa", help="Open full MFA chart"):
                     st.session_state["page"] = "MFA Adoption"
@@ -123,19 +123,19 @@ if page == "Dashboard":
         r2c1, r2c2, r2c3 = st.columns(3)
         with r2c1:
             mini_bar(["Apr","May"], [2,3], "#d62728", "Incidents")
-            sub1, sub2, sub3 = st.columns([1,2,1])
+            sub1, sub2, sub3 = st.columns([0.25, 0.5, 0.25])
             with sub2:
                 if st.button("See detailed chart", key="box_incidents", help="Open full Incidents chart"):
                     st.session_state["page"] = "Incidents"
         with r2c2:
             mini_bar(["CrowdStrike","Defender","Tenable"], [100,60,100], "#9467bd", "Tool Coverage")
-            sub1, sub2, sub3 = st.columns([1,2,1])
+            sub1, sub2, sub3 = st.columns([0.25, 0.5, 0.25])
             with sub2:
                 if st.button("See detailed chart", key="box_tools", help="Open full Tool Coverage chart"):
                     st.session_state["page"] = "Tool Inventory"
         with r2c3:
             mini_bar(["NIST CSF","PCI DSS"], [72,64], "#8c564b", "Compliance")
-            sub1, sub2, sub3 = st.columns([1,2,1])
+            sub1, sub2, sub3 = st.columns([0.25, 0.5, 0.25])
             with sub2:
                 if st.button("See detailed chart", key="box_compliance", help="Open full Compliance chart"):
                     st.session_state["page"] = "Compliance"
@@ -207,7 +207,6 @@ elif page == "Tool Inventory":
 
 # ---------- Culture & Awareness ----------
 elif page == "Culture":
-    st.title("Security Culture and Awareness")
     st.title("Security Culture and Awareness")
     culture_df = pd.DataFrame({
         "Question": [
