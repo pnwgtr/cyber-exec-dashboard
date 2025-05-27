@@ -14,8 +14,9 @@ st.markdown(
     """
     <style>
     [data-testid="stTabs"] .tab {
-        font-size: 1.2rem;
-        font-weight: 600;
+        font-size: 1.5rem;
+        font-weight: 700;
+        padding: 1rem 1.5rem;
     }
     </style>
     """,
