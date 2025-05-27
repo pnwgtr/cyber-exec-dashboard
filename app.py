@@ -17,6 +17,24 @@ document.body.classList.add(darkMode ? 'dark' : 'light');
 </script>
 
 <style>
+/* Charts adapt to dark mode */
+body.dark .js-plotly-plot .plotly {
+  background-color: #1e1e1e !important;
+  color: #fafafa !important;
+}
+
+/* Accent button color */
+button[data-baseweb="button"] {
+  background-color: var(--accent-color, #4e8cff);
+  color: white;
+  border-radius: 6px;
+  border: none;
+}
+
+button[data-baseweb="button"]:hover {
+  background-color: var(--accent-hover, #2d6bff);
+}
+
 /* Nav buttons equally distributed & centered text */
 div[data-testid="column"] button {
     width: 100% !important;
@@ -45,20 +63,29 @@ div[data-testid="stMetric-value"] {
 
 /* Dashboard custom metric blocks (HTML based) */
 body, html, .main, .block-container {
-    color: var(--text-color) !important;
-    background-color: var(--background-color) !important;
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Dark mode-safe manual styles */
 :root {
   --text-color: #111;
   --background-color: #f0f2f6;
+  --box-bg: #ffffff;
+  --border-color: #ccc;
+  --accent-color: #4e8cff;
+  --accent-hover: #2d6bff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --text-color: #fafafa;
     --background-color: #0e1117;
+    --box-bg: #1e1e1e;
+    --border-color: #333;
+    --accent-color: #3a8bff;
+    --accent-hover: #5ea0ff;
   }
 }
 body.light div.metric-block div.label,
