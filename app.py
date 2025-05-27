@@ -34,35 +34,23 @@ with tabs[0]:
 
     with col1:
         st.caption("Critical Vulnerabilities")
-        fig1, ax1 = plt.subplots(figsize=(3, 2), facecolor='none')
-        ax1.set_facecolor('#f0f2f6')
-        ax1.plot([45, 39, 31, 22, 15, 11], marker='o', color='#1f77b4')
-        ax1.set_xticks([])
-        ax1.set_yticks([])
-        ax1.set_title("Vuln Trend", fontsize=10)
+        fig1, ax1 = plt.subplots(figsize=(3, 2))
         fig1.patch.set_facecolor('none')
+        ax1.set_facecolor('#f0f2f6')
         st.pyplot(fig1)
 
     with col2:
         st.caption("Phishing Volume")
-        fig2, ax2 = plt.subplots(figsize=(3, 2), facecolor='none')
-        ax2.set_facecolor('#f0f2f6')
-        ax2.bar(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], [820, 640, 975, 1120, 900, 760], color='#ff7f0e')
-        ax2.set_xticks([])
-        ax2.set_yticks([])
-        ax2.set_title("Phishing Trend", fontsize=10)
+        fig2, ax2 = plt.subplots(figsize=(3, 2))
         fig2.patch.set_facecolor('none')
+        ax2.set_facecolor('#f0f2f6')
         st.pyplot(fig2)
 
     with col3:
         st.caption("MFA Adoption")
-        fig3, ax3 = plt.subplots(figsize=(3, 2), facecolor='none')
-        ax3.set_facecolor('#f0f2f6')
-        ax3.plot([70, 75, 80, 85, 88, 92], marker='o', color='#2ca02c')
-        ax3.set_xticks([])
-        ax3.set_yticks([])
-        ax3.set_title("MFA Trend", fontsize=10)
+        fig3, ax3 = plt.subplots(figsize=(3, 2))
         fig3.patch.set_facecolor('none')
+        ax3.set_facecolor('#f0f2f6')
         st.pyplot(fig3)
 
 with tabs[1]:
@@ -71,7 +59,7 @@ with tabs[1]:
     vuln_data = pd.DataFrame({
         'Date': pd.date_range(end=pd.Timestamp.today(), periods=6, freq='M'),
         'Critical Vulns': [45, 39, 31, 22, 15, 11]
-     })
+    })
     fig, ax = plt.subplots()
     fig.patch.set_facecolor('none')
     ax.set_facecolor('#f0f2f6')
@@ -80,8 +68,6 @@ with tabs[1]:
     ax.plot(vuln_data['Date'], vuln_data['Critical Vulns'], marker='o')
     ax.set_ylabel("Open Critical Vulns")
     ax.set_xlabel("Month")
-    ax.set_title("Critical Vulnerabilities Over Time")
-    st.pyplot(fig)
     ax.set_title("Critical Vulnerabilities Over Time")
     st.pyplot(fig)
 
@@ -93,6 +79,10 @@ with tabs[2]:
         'Blocked Emails': [820, 640, 975, 1120, 900, 760]
     })
     fig, ax = plt.subplots()
+    fig.patch.set_facecolor('none')
+    ax.set_facecolor('#f0f2f6')
+    fig.patch.set_facecolor('none')
+    ax.set_facecolor('#f0f2f6')
     ax.bar(phishing_data['Month'], phishing_data['Blocked Emails'])
     ax.set_ylabel("Blocked Emails")
     ax.set_title("Phishing Emails Blocked per Month")
@@ -106,6 +96,10 @@ with tabs[3]:
         'MFA %': [70, 75, 80, 85, 88, 92]
     })
     fig, ax = plt.subplots()
+    fig.patch.set_facecolor('none')
+    ax.set_facecolor('#f0f2f6')
+    fig.patch.set_facecolor('none')
+    ax.set_facecolor('#f0f2f6')
     ax.plot(mfa_data['Month'], mfa_data['MFA %'], marker='o')
     ax.set_ylabel("MFA Adoption (%)")
     ax.set_title("MFA Adoption Rate Over Time")
