@@ -98,7 +98,7 @@ if page == "Dashboard":
         <div style='text-align:center; font-size:1.2rem; color:gray;'>High‑level summary of current cybersecurity posture.</div>
     """, unsafe_allow_html=True)
 
-    k1, k2, k3, k4, k5 = st.columns([0.2, 0.2, 0.2, 0.2, 0.2])
+    spacer_l, k1, k2, k3, k4, k5, spacer_r = st.columns([0.05, 0.18, 0.18, 0.18, 0.18, 0.18, 0.05])
     with k1:
         st.markdown("""
         <div style='text-align:center'>
