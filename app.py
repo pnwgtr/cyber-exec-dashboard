@@ -102,18 +102,15 @@ if page == "Dashboard":
         r1c1, r1c2, r1c3 = st.columns(3)
         with r1c1:
             mini_line([45, 39, 31, 22, 15, 11], "#1f77b4", "Vuln Trend")
-            if st.button("See detailed chart", key="box_vuln", help="Open full Vulnerabilities chart")
-            if st.session_state.get("box_vuln"):
-                st.session_state["page"] = "Vulnerabilities"  # navigate
+            if st.button("See detailed chart", key="box_vuln", help="Open full Vulnerabilities chart"):
+                st.session_state["page"] = "Vulnerabilities"
         with r1c2:
             mini_bar(["Jan","Feb","Mar","Apr","May","Jun"], [820,640,975,1120,900,760], "#ff7f0e", "Phishing Trend")
-            if st.button("See detailed chart", key="box_phish", help="Open full Phishing chart")
-            if st.session_state.get("box_phish"):
+            if st.button("See detailed chart", key="box_phish", help="Open full Phishing chart"):
                 st.session_state["page"] = "Phishing"
         with r1c3:
             mini_line([70,75,80,85,88,92], "#2ca02c", "MFA Trend")
-            if st.button("See detailed chart", key="box_mfa", help="Open full MFA chart")
-            if st.session_state.get("box_mfa"):
+            if st.button("See detailed chart", key="box_mfa", help="Open full MFA chart"):
                 st.session_state["page"] = "MFA Adoption"
 
         st.divider()
@@ -129,7 +126,7 @@ if page == "Dashboard":
         with r2c3:
             mini_bar(["NIST CSF","PCI DSS"], [72,64], "#8c564b", "Compliance")
             if st.button("See detailed chart", key="box_compliance", help="Open full Compliance chart"):
-                st.session_state["page"] = "Compliance"], [72,64], "#8c564b", "Compliance")
+                st.session_state["page"] = "Compliance"
 
 # ---------- Vulnerabilities ----------
 elif page == "Vulnerabilities":
