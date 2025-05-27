@@ -22,11 +22,11 @@ with tabs[0]:
     st.title("Cybersecurity Executive Dashboard")
     st.caption("High-level summary of current cybersecurity posture.")
     col1, col2, col3, col4, col5 = st.columns(5)
-    col1.metric("Critical Vulns (30d)", "11", "-4")
-    col2.metric("Phishing Emails Blocked", "760", "-140")
-    col3.metric("Endpoint Coverage", "87%")
-    col4.metric("MFA Adoption", "92%")
-    col5.metric("Incidents This Month", "3")
+    col1.metric("Critical Vulns (30d)", "11", "-4 🔻")
+    col2.metric("Phishing Emails Blocked", "760", "-140 🔻")
+    col3.metric("Endpoint Coverage", "87%", "+3% 🔺")
+    col4.metric("MFA Adoption", "92%", "+4% 🔺")
+    col5.metric("Incidents This Month", "3", "+1 🔺")
 
     st.markdown("---")
     st.subheader("Preview: Security Trends at a Glance")
@@ -35,8 +35,6 @@ with tabs[0]:
     with col1:
         st.caption("Critical Vulnerabilities")
         fig1, ax1 = plt.subplots(figsize=(3, 2))
-        ax1.set_facecolor('#f0f2f6')
-        fig1.patch.set_facecolor('none')
         fig1.patch.set_facecolor('none')
         ax1.set_facecolor('#f0f2f6')
         ax1.plot([45, 39, 31, 22, 15, 11], marker='o', color='#1f77b4')
@@ -48,8 +46,6 @@ with tabs[0]:
     with col2:
         st.caption("Phishing Volume")
         fig2, ax2 = plt.subplots(figsize=(3, 2))
-        ax2.set_facecolor('#f0f2f6')
-        fig2.patch.set_facecolor('none')
         fig2.patch.set_facecolor('none')
         ax2.set_facecolor('#f0f2f6')
         ax2.bar(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], [820, 640, 975, 1120, 900, 760], color='#ff7f0e')
@@ -61,8 +57,6 @@ with tabs[0]:
     with col3:
         st.caption("MFA Adoption")
         fig3, ax3 = plt.subplots(figsize=(3, 2))
-        ax3.set_facecolor('#f0f2f6')
-        fig3.patch.set_facecolor('none')
         fig3.patch.set_facecolor('none')
         ax3.set_facecolor('#f0f2f6')
         ax3.plot([70, 75, 80, 85, 88, 92], marker='o', color='#2ca02c')
@@ -70,6 +64,41 @@ with tabs[0]:
         ax3.set_yticks([])
         ax3.set_title("MFA Trend", fontsize=10)
         st.pyplot(fig3)
+
+    col4, col5, col6 = st.columns(3)
+
+    with col4:
+        st.caption("Incident Volume")
+        fig4, ax4 = plt.subplots(figsize=(3, 2))
+        fig4.patch.set_facecolor('none')
+        ax4.set_facecolor('#f0f2f6')
+        ax4.bar(['Apr', 'May'], [2, 3], color='#d62728')
+        ax4.set_xticks([])
+        ax4.set_yticks([])
+        ax4.set_title("Incidents", fontsize=10)
+        st.pyplot(fig4)
+
+    with col5:
+        st.caption("Tool Coverage")
+        fig5, ax5 = plt.subplots(figsize=(3, 2))
+        fig5.patch.set_facecolor('none')
+        ax5.set_facecolor('#f0f2f6')
+        ax5.bar(['CrowdStrike', 'Defender', 'Tenable'], [100, 60, 100], color='#9467bd')
+        ax5.set_xticks([])
+        ax5.set_yticks([])
+        ax5.set_title("Tool Coverage", fontsize=10)
+        st.pyplot(fig5)
+
+    with col6:
+        st.caption("Compliance Score")
+        fig6, ax6 = plt.subplots(figsize=(3, 2))
+        fig6.patch.set_facecolor('none')
+        ax6.set_facecolor('#f0f2f6')
+        ax6.bar(['NIST CSF', 'PCI DSS'], [72, 64], color='#8c564b')
+        ax6.set_xticks([])
+        ax6.set_yticks([])
+        ax6.set_title("Compliance", fontsize=10)
+        st.pyplot(fig6)
 
 with tabs[1]:
     st.title("Vulnerability Remediation Trend")
