@@ -66,7 +66,7 @@ with tabs[0]:
         ax3.set_title("MFA Trend", fontsize=10)
         st.pyplot(fig3)
 
-            st.divider()
+                    st.divider()
     col4, col5, col6 = st.columns(3)
 
     with col4:
@@ -202,3 +202,4 @@ with tabs[7]:
         ]
     })
     st.dataframe(compliance_df)
+
