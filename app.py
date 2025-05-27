@@ -13,13 +13,10 @@ preview_bg = "#f0f2f6"             # soft grey plot background
 st.markdown(
     """
     <style>
-div[data-testid="stTabs"] button {
-    
-    font-weight: 700;
-    padding: 1rem 2rem;
-    flex: 1;
-    justify-content: center;
-    text-align: center;
+div[data-testid="stTabs"] button span {
+    font-size: 1.6rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
 }
 </style>
     """,
