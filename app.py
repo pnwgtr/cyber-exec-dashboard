@@ -102,10 +102,16 @@ if page == "Dashboard":
         r1c1, r1c2, r1c3 = st.columns(3)
         with r1c1:
             mini_line([45, 39, 31, 22, 15, 11], "#1f77b4", "Vuln Trend")
+            if st.button("", key="box_vuln"):
+                st.session_state["page"] = "Vulnerabilities"  # navigate
         with r1c2:
             mini_bar(["Jan","Feb","Mar","Apr","May","Jun"], [820,640,975,1120,900,760], "#ff7f0e", "Phishing Trend")
+            if st.button("", key="box_phish"):
+                st.session_state["page"] = "Phishing"
         with r1c3:
             mini_line([70,75,80,85,88,92], "#2ca02c", "MFA Trend")
+            if st.button("", key="box_mfa"):
+                st.session_state["page"] = "MFA Adoption"
 
         st.divider()
         r2c1, r2c2, r2c3 = st.columns(3)
