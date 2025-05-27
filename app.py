@@ -11,7 +11,12 @@ preview_bg = "#f0f2f6"
 # ---------- Global style: big, bold nav buttons ----------
 st.markdown(
     """
-    <style>
+    <script>
+const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+document.body.classList.add(darkMode ? 'dark' : 'light');
+</script>
+
+<style>
 /* Nav buttons equally distributed & centered text */
 div[data-testid="column"] button {
     width: 100% !important;
@@ -55,6 +60,14 @@ body, html, .main, .block-container {
     --text-color: #fafafa;
     --background-color: #0e1117;
   }
+}
+body.light div.metric-block div.label,
+body.light div.metric-block div.value {
+  color: #111;
+}
+body.dark div.metric-block div.label,
+body.dark div.metric-block div.value {
+  color: #fafafa;
 }
 </style>
     """,
@@ -118,9 +131,9 @@ if page == "Dashboard":
     spacer_l, k1, k2, k3, k4, k5, spacer_r = st.columns([0.05, 0.18, 0.18, 0.18, 0.18, 0.18, 0.05])
     with k1:
         st.markdown("""
-        <div style='text-align:center'>
-            <div style='font-size:1.2rem;font-weight:800;text-transform:uppercase;color:#111;color:light-dark(#111,#fafafa);'>Critical Vulns (30d)</div>
-            <div style='font-size:2.2rem;font-weight:900;color:#111;color:light-dark(#111,#fafafa);'>11 <span style='color:red;'>🔻</span></div>
+        <div class='metric-block' style='text-align:center'>
+<div class='label' style='font-size:1.2rem;font-weight:800;text-transform:uppercase;'>Critical Vulns (30d)</div>
+            <div class='value' style='font-size:2.2rem;font-weight:900;'>11 <span style='color:red;'>🔻</span></div>
         </div>
         """, unsafe_allow_html=True)
     with k2:
@@ -287,4 +300,3 @@ else:
         ]
     })
     st.dataframe(comp_df, use_container_width=True)
-
